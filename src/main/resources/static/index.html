@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand-mark">Q</div>
+      <div>
+        <h1>Quizzy</h1>
+        <p>Test your knowledge</p>
+      </div>
+    </header>
+
+    <section id="setupScreen" class="panel">
+      <div class="eyebrow">READY, SET, LEARN</div>
+      <h2>Create your quiz</h2>
+      <p class="muted">Choose a category and number of questions to begin.</p>
+
+      <form id="quizForm">
+        <label for="category">Category</label>
+        <input id="category" type="text" placeholder="e.g. Java" value="Java" required />
+
+        <label for="questionCount">Number of questions</label>
+        <select id="questionCount">
+          <option value="5">5 questions</option>
+          <option value="10">10 questions</option>
+          <option value="15">15 questions</option>
+        </select>
+
+        <label for="quizTitle">Quiz title</label>
+        <input id="quizTitle" type="text" placeholder="e.g. Java Basics" value="Java Basics" required />
+
+        <button id="startButton" type="submit">Start quiz <span>→</span></button>
+      </form>
+      <p id="setupMessage" class="message" role="status"></p>
+    </section>
+
+    <section id="quizScreen" class="panel hidden">
+      <div class="quiz-heading">
+        <div>
+          <div class="eyebrow">YOUR QUIZ</div>
+          <h2 id="activeTitle">Quiz</h2>
+        </div>
+        <div id="progressText" class="progress-text">Question 1 of 5</div>
+      </div>
+
+      <div class="progress-track">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+
+      <h3 id="questionText" class="question-text"></h3>
+      <div id="options" class="options"></div>
+
+      <div class="quiz-footer">
+        <span id="selectionHint" class="muted">Select one answer</span>
+        <button id="nextButton" type="button" disabled>Next question →</button>
+      </div>
+      <p id="quizMessage" class="message" role="status"></p>
+    </section>
+
+    <section id="resultScreen" class="panel result-panel hidden">
+      <div class="result-icon">✓</div>
+      <div class="eyebrow">QUIZ COMPLETED</div>
+      <h2>Your result</h2>
+      <div id="scoreText" class="score">—</div>
+      <p id="resultMessage" class="muted"></p>
+      <button id="restartButton" type="button">Create another quiz</button>
+    </section>
+
+    <footer>Powered by Spring Boot · PostgreSQL</footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
